@@ -1,8 +1,8 @@
 # Granola
 
-![](docs/screencast_full.gif)
+![Preview of Granola](docs/screencast_full.gif)
 
-### What's this?
+## What's this?
 
 This is an app to *manually* track expenses. General idea is:
 
@@ -12,22 +12,22 @@ This is an app to *manually* track expenses. General idea is:
 * Search for expenses
 * Generate reports and charts about monthly/yearly expenses
 
-### What it's not
+## What it's not
 
 This app **will not** automatically integrate with your bank and retrieve your expenses.
 
-### How it was build
+## How it was build
 
 * Database in [PostgreSQL](https://www.postgresql.org/)
 * Next.js for frontend and backend.
   * [Material UI](https://mui.com): starting point was [this example](https://github.com/mui/material-ui/tree/master/examples/nextjs).
   * Charts powered by [Google Charts](https://developers.google.com/chart) and [this library](https://www.react-google-charts.com/).
 
-### Where is it hosted?
+## Where is it hosted?
 
 It's not. You can run in locally or host it anywhere you like, though. If you want to do it for free, I suggest [Vercel](https://vercel.com/) and [ElephantSQL](https://www.elephantsql.com/).
 
-### How can I run it locally?
+## How can I run it locally?
 
 If you have [Node.j](https://nodejs.org/en/)s and [docker](https://www.docker.com/) installed, you just need to:
 
@@ -41,15 +41,15 @@ If you have [Node.j](https://nodejs.org/en/)s and [docker](https://www.docker.co
 * run `npm install`
 * run `npm run dev`
 
-### Comments
+## Comments
 
 Authentication: idea was derived from [Jason Watmore's](https://jasonwatmore.com) blog post: Next.js 11 - [User Registration and Login Tutorial with Example](https://jasonwatmore.com/post/2021/08/19/next-js-11-user-registration-and-login-tutorial-with-example-app)
 
-### Details
+## Details
 
-#### Backend
+### Backend
 
-##### Database
+#### Database
 
 My goal was to create a lightweight solution so it could be hosted for free ([ElephantSQL](https://www.elephantsql.com/plans.html) for instance offers free plan with 20MB of data).
 
@@ -58,16 +58,16 @@ Therefore, I decided not to include some columns (such as time_created) to save 
 One interesting thing to keep in mind about space in PostgreSQL is the so-called
 ["Column tetris"](https://stackoverflow.com/a/7431468/660711) - the order or your columns might impact disk usage!
 
-###### Category table
+##### Category table
 
 The main categories and sub-categories can be represented in the same table with the Adjavency list model, described in [this very nice article](https://www.mysqltutorial.org/mysql-adjacency-list-tree/).
 
 Keep in mind that:
 
-- deleting one parent category will **delete child categories** as well
-- deleting a category will **delete all expenses** related to this category
+* deleting one parent category will **delete child categories** as well
+* deleting a category will **delete all expenses** related to this category
 
-##### API routes
+### API routes
 
 For easier understanding, import [this file](https://github.com/jeromevonk/granola/blob/main/docs/Granola%20API.postman_collection.json) into [Postman](https://www.postman.com/downloads/).
 
